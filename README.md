@@ -1,53 +1,46 @@
-# 🩺 Glucose Monitoring System using TCRT5000, Arduino & HC-05
+# 🩺 Inexpensive Blood Glucometer – Arduino & IoT-Based System
 
-This project demonstrates a basic glucose monitoring simulation using the TCRT5000 infrared sensor, an I2C LCD display, and Bluetooth communication via the HC-05 module. It reads analog values from the IR sensor, converts them to voltage, estimates glucose levels, and classifies the reading as **Normal**, **Prediabetes**, or **Diabetes**.
-
----
-
-## 🚀 Features
-
-- 📟 Real-time glucose value display on a 16x2 I2C LCD
-- 📶 Wireless data transmission via HC-05 Bluetooth to Serial Monitor
-- 📈 Glucose level estimation using a simulated formula
-- 🧠 Health status classification (Normal / Prediabetes / Diabetes)
-- 🔧 Adjustable voltage-to-glucose mapping for different sensor setups
+This project demonstrates a **low-cost, non-invasive blood glucose monitoring system** using **Arduino Uno**, **TCRT5000 IR sensor**, **HC-05 Bluetooth**, **ESP8266 Wi-Fi module**, and a **16x2 I2C LCD display**. It simulates glucose estimation and displays health status, making it a great prototype for biomedical and IoT applications in affordable healthcare.
 
 ---
 
-## 🛠️ Components Used
+## 🔧 Features
 
-| Component           | Quantity |
-|--------------------|----------|
-| Arduino Uno        | 1        |
-| TCRT5000 IR Sensor | 1        |
-| I2C 16x2 LCD       | 1        |
-| HC-05 Bluetooth    | 1        |
-| Jumper Wires       | -        |
-| Breadboard         | 1        |
+- 📈 **Real-time glucose level estimation** using analog IR sensor input
+- 🧠 **Health status classification**: Normal / Prediabetes / Diabetes
+- 🖥️ **LCD-based display** of glucose readings and health status
+- 📡 **Wireless communication via Bluetooth (HC-05) and Wi-Fi (ESP8266)** for mobile or cloud-based access
+- 📲 **Serial Monitor and Bluetooth transmission** for testing and remote display
+- ☁️ **IoT-ready architecture** for future cloud integration
 
 ---
 
-## ⚙️ How It Works
+## 🧩 Components Used
 
-1. The **TCRT5000 IR sensor** measures reflectivity based on the sample.
-2. Analog values are read and converted to voltage (`0–5V`).
-3. A simulated **glucose level** is calculated using:
-glucose = (voltage * 100) + 70
-
-
-4. Glucose values are capped between 70 mg/dL and 400 mg/dL.
-5. Classification:
-- **< 140 mg/dL** → Normal
-- **140–199 mg/dL** → Prediabetes
-- **≥ 200 mg/dL** → Diabetes
-6. The data is:
-- Shown on the I2C LCD
-- Transmitted over Bluetooth via **HC-05** to a serial terminal (e.g., Serial Monitor or Bluetooth Terminal app)
+- Arduino Uno
+- TCRT5000 IR Sensor
+- I2C LCD (16x2)
+- HC-05 Bluetooth Module
+- **ESP8266 Wi-Fi Module**
+- Jumper wires, breadboard, USB cable
 
 ---
 
-## 🖥️ Sample Output (Serial Monitor)
+## 🔬 How It Works
 
+1. The IR sensor (TCRT5000) reads analog reflectance values from skin/blood capillaries.
+2. Sensor data is converted to voltage and mapped to simulated **glucose concentration (mg/dL)**.
+3. Glucose levels are classified:
+   - `< 140 mg/dL`: Normal
+   - `140–199 mg/dL`: Prediabetes
+   - `≥ 200 mg/dL`: Diabetes
+4. Readings are displayed on the LCD, sent to the **Serial Monitor**, and wirelessly transmitted via **Bluetooth** and **Wi-Fi** for IoT expansion.
+
+---
+
+## 📟 Output Sample
+
+```bash
 Glucose: 132.4 mg/dL | Status: Normal Glucose: 176.2 mg/dL | Status: Prediabetes Glucose: 234.8 mg/dL | Status: Diabetes
 
 
